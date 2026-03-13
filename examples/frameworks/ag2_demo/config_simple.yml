@@ -1,0 +1,16 @@
+# AG2 ConversableAgent demo - no tools
+
+llms:
+  nim_llm:
+    _type: nim
+    model_name: nvidia/llama-3.3-nemotron-super-49b-v1.5
+    api_key: FILL-THIS-OUT
+    temperature: 0.0
+    max_tokens: 256
+
+workflow:
+  _type: ag2_conversable_agent
+  llm_name: nim_llm
+  system_prompt: "You are a helpful assistant. Keep answers concise."
+  max_turns: 3
+  verbose: false

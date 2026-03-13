@@ -50,6 +50,7 @@ dependencies = ["nvidia-nat-core == {version}"]
 # Keep sorted!!!
 a2a = ["nvidia-nat-a2a == {version}"]
 adk = ["nvidia-nat-adk == {version}"]
+ag2 = ["nvidia-nat-ag2 == {version}"]
 agno = ["nvidia-nat-agno == {version}"]
 app = ["nvidia-nat-app == {version}"]
 autogen = ["nvidia-nat-autogen == {version}"]
@@ -89,6 +90,7 @@ pii-defense = [ "nvidia-nat-core[pii-defense] == {version}" ]
 most = [
   "nvidia-nat-a2a == {version}",
   "nvidia-nat-adk == {version}",
+  "nvidia-nat-ag2 == {version}",
   "nvidia-nat-agno == {version}",
   "nvidia-nat-app == {version}",
   "nvidia-nat-autogen == {version}",
@@ -224,6 +226,7 @@ managed = true
 # Packages
 nvidia-nat-a2a = { path = "packages/nvidia_nat_a2a", editable = true }
 nvidia-nat-adk = { path = "packages/nvidia_nat_adk", editable = true }
+nvidia-nat-ag2 = { path = "packages/nvidia_nat_ag2", editable = true }
 nvidia-nat-agno = { path = "packages/nvidia_nat_agno", editable = true }
 nvidia-nat-app = { path = "packages/nvidia_nat_app", editable = true }
 nvidia-nat-autogen = { path = "packages/nvidia_nat_autogen", editable = true }

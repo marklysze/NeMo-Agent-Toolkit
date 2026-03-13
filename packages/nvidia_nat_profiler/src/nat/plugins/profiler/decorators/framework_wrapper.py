@@ -29,6 +29,7 @@ from nat.builder.framework_enum import LLMFrameworkEnum
 logger = logging.getLogger(__name__)
 
 _library_instrumented = {
+    "ag2": False,
     "langchain": False,
     "crewai": False,
     "semantic_kernel": False,
@@ -172,6 +173,19 @@ def set_framework_profiler_handler(
                         "pip install \"nvidia-nat[strands]\". Error: %s",
                         e,
                     )
+
+            if LLMFrameworkEnum.AG2 in frameworks and not _library_instrumented["ag2"]:
+                try:
+                    from nat.plugins.ag2.callback_handler import AG2ProfilerHandler
+                    handler = AG2ProfilerHandler()
+                    handler.instrument()
+                    _library_instrumented["ag2"] = True
+                    logger.debug("AG2 callback handler registered")
+                except ImportError as e:
+                    logger.warning(
+                        "AG2 profiler not available. "
+                        "Install NAT with AG2 extras: pip install \"nvidia-nat[ag2]\". Error: %s",
+                        e)
 
             if LLMFrameworkEnum.AUTOGEN in frameworks and not _library_instrumented["autogen"]:
                 try:
